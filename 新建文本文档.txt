@@ -1,0 +1,61 @@
+  if (nType == 0)
+            {
+                  for(int i = LineSeg.startPoint.Row*width + LineSeg.startPoint.Col; i< LineSeg.startPoint.Row * width + LineSeg.startPoint.Col + nLength - 5; i++)
+                {
+                    Console.WriteLine(srcValues[i]);
+                    nGrayDiff1 = srcValues[i] - srcValues[i + 3];
+                    nGrayDiff2 = srcValues[i + 1] - srcValues[i + 4];
+                    nGrayDiff3 = srcValues[i + 2] - srcValues[i + 5];
+                    if (nGrayDiff1 > nEdge && nGrayDiff2 > nEdge && nGrayDiff3 > nEdge)         //找到边缘点
+                    {
+                        RowPt[nCount] = LineSeg.startPoint.Row;
+                        ColPt[nCount] = i;
+                        ++nCount;
+                       
+                    }
+
+
+                }
+            }
+            else
+            {
+
+            }
+            try
+            {
+                if (!System.IO.File.Exists("gray" + ".txt"))
+                {
+                    fs = new FileStream("gray" + ".txt", FileMode.Create, FileAccess.ReadWrite);
+                    sw = new StreamWriter(fs);
+                }
+                else
+                {
+
+                    fs = new FileStream("gray" + ".txt", FileMode.Open, FileAccess.ReadWrite);
+
+                    sw = new StreamWriter(fs);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("打开文件失败");
+            }
+
+
+
+
+
+
+   if (FullLight&&(i_camCount % 2 == 0))          //显示全亮
+            {
+                //i_camCount是拍照总数，不是瓶子总数。之前想成了全亮奇数时不执行。但实际上是执行的，因为奇数时和偶数还是同一个瓶子
+                //对于一个奇数号瓶，第一次拍全亮时进入回调时拍照总数是偶数。
+                //每次进入一个新瓶子的回调，拍照总数总是偶数
+
+                //bitmap.Save(strSN + indexer.ToString() + ".bmp");
+                bitmaapGDI.DrawImage(bitmap, new Rectangle(0, 0, m_pic_ShowImage.Width, m_pic_ShowImage.Height), new Rectangle(0, 0, bitmap.Width, bitmap.Height), GraphicsUnit.Pixel);
+                bitmaapGDI.DrawString("相机号" + CameraID.ToString(), font, brush, 0, 0);
+                bitmaapGDI.DrawString("图像号" + nimageNum.ToString(), font, brush, 0, 40);
+                m_objGC.DrawImage(image, new PointF(0, 0));
+            }

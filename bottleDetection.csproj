@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39A485D0-2679-42EB-9B9C-AFE14E205B7C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>bottleDetection</RootNamespace>
+    <AssemblyName>bottleDetection</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GxIAPINET, Version=1.0.8535.20279, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Program Files\Daheng Imaging\GalaxySDK\APIDll\Win64\.NET4.0\GxIAPINET.dll</HintPath>
+    </Reference>
+    <Reference Include="halcondotnet">
+      <HintPath>..\..\Program Files\MVTec\HALCON-20.11-Steady\bin\dotnet35\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="OmronFinsTCP.Net, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\OmronFinsTCP.Net.3.0.0.0\lib\net40\OmronFinsTCP.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="algothrimSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="algothrimSet.Designer.cs">
+      <DependentUpon>algothrimSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="algothrimSetDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="algothrimSetDialog.Designer.cs">
+      <DependentUpon>algothrimSetDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="algothrim\CCheck.cs" />
+    <Compile Include="algothrim\Common.cs" />
+    <Compile Include="algothrim\FillCheck.cs" />
+    <Compile Include="algothrim\innerData.cs" />
+    <Compile Include="algothrim\takeThread.cs" />
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="camera.cs" />
+    <Compile Include="Camera\AbstractCamer.cs" />
+    <Compile Include="Camera\Basler.cs" />
+    <Compile Include="Camera\DH.cs" />
+    <Compile Include="Camera\HKVision.cs" />
+    <Compile Include="DetecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetecForm.Designer.cs">
+      <DependentUpon>DetecForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GxBitmap.cs" />
+    <Compile Include="algothrim\detectThread.cs" />
+    <Compile Include="PLCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PLCForm.Designer.cs">
+      <DependentUpon>PLCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="systemSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="systemSet.Designer.cs">
+      <DependentUpon>systemSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\Configfure.cs" />
+    <Compile Include="Tool\DataBase.cs" />
+    <Compile Include="Tool\FillCheck.cs" />
+    <Compile Include="Tool\OmronFINS.cs" />
+    <Compile Include="Tool\Setting.cs" />
+    <Compile Include="Tool\SqlHelper.cs" />
+    <Compile Include="widget\FullLight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\FullLight.Designer.cs">
+      <DependentUpon>FullLight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\IOCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\IOCard.Designer.cs">
+      <DependentUpon>IOCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\PLCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\PLCForm.Designer.cs">
+      <DependentUpon>PLCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\PLCStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\PLCStatus.Designer.cs">
+      <DependentUpon>PLCStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\RealStatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\RealStatisticForm.Designer.cs">
+      <DependentUpon>RealStatisticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\ShowImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\ShowImage.Designer.cs">
+      <DependentUpon>ShowImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\StatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\StatisticForm.Designer.cs">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\StatisticInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\StatisticInfo.Designer.cs">
+      <DependentUpon>StatisticInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\StressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\StressForm.Designer.cs">
+      <DependentUpon>StressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\tab1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\tab1.Designer.cs">
+      <DependentUpon>tab1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="widget\Wave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="widget\Wave.Designer.cs">
+      <DependentUpon>Wave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32Bitmap.cs" />
+    <Compile Include="clogfile.cs" />
+    <Compile Include="common.cs" />
+    <Compile Include="ConfigInfo.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Icon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icon.resx</DependentUpon>
+    </Compile>
+    <Compile Include="management.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="management.Designer.cs">
+      <DependentUpon>management.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mylabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PLC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PLC.Designer.cs">
+      <DependentUpon>PLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="algothrimSet.resx">
+      <DependentUpon>algothrimSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="algothrimSetDialog.resx">
+      <DependentUpon>algothrimSetDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetecForm.resx">
+      <DependentUpon>DetecForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icon.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icon.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="management.resx">
+      <DependentUpon>management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PLC.resx">
+      <DependentUpon>PLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PLCForm.resx">
+      <DependentUpon>PLCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="systemSet.resx">
+      <DependentUpon>systemSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\FullLight.resx">
+      <DependentUpon>FullLight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\IOCard.resx">
+      <DependentUpon>IOCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\PLCForm.resx">
+      <DependentUpon>PLCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\PLCStatus.resx">
+      <DependentUpon>PLCStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\RealStatisticForm.resx">
+      <DependentUpon>RealStatisticForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\ShowImage.resx">
+      <DependentUpon>ShowImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\StatisticForm.resx">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\StatisticInfo.resx">
+      <DependentUpon>StatisticInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\StressForm.resx">
+      <DependentUpon>StressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\tab1.resx">
+      <DependentUpon>tab1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="widget\Wave.resx">
+      <DependentUpon>Wave.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\algset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\bottle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\Carve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\Clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\count.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\daheng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\DeBug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\help-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\PLC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\set.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolwidget\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image number0_14520.bmp" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

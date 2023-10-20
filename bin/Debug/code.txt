@@ -1,0 +1,54 @@
+  try
+            {
+                //每个创建的保存txt名字不同
+                if (!System.IO.File.Exists(cameraInstanceNew.strSN + ".txt"))
+                {
+                    fs = new FileStream(cameraInstanceNew.strSN + ".txt", FileMode.Create, FileAccess.ReadWrite);
+                    sw = new StreamWriter(fs);
+                }
+                else
+                {
+                    
+                    fs = new FileStream(cameraInstanceNew.strSN + ".txt", FileMode.Open, FileAccess.ReadWrite);
+                   
+                    sw = new StreamWriter(fs);
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("打开文件失败");
+            }
+          
+
+
+
+            String m_strFilePath = "tst";
+            DateTime dtNow = System.DateTime.Now;  // 获取系统当前时间
+            String strDateTime = dtNow.Year.ToString() + "_"
+                               + dtNow.Month.ToString() + "_"
+                               + dtNow.Day.ToString() + "_"
+                               + dtNow.Hour.ToString() + "_"
+                               + dtNow.Minute.ToString() + "_"
+                               + dtNow.Second.ToString() + "_"
+                               + dtNow.Millisecond.ToString();
+
+            stfFileName = m_strFilePath + "\\" + strDateTime + ".bmp";  // 默认的图像保存名称
+
+
+
+
+
+
+  strDateTime = dtNow.Year.ToString() + "_"
+                               + dtNow.Month.ToString() + "_"
+                               + dtNow.Day.ToString() + "_"
+                               + dtNow.Hour.ToString() + "_"
+                               + dtNow.Minute.ToString() + "_"
+                               + dtNow.Second.ToString() + "_"
+                               + dtNow.Millisecond.ToString()+"_";
+ stfFileName = m_strFilePath + "\\" + strDateTime + currenthCheckData.i_imageIndex.ToString() + ".bmp";  // 默认的图像保存名称
+
+
+
+sw.WriteLine(stfFileName);
